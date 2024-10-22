@@ -12,47 +12,49 @@
             <div class="alert alert-success text-center">{{ session('success') }}</div>
         @endif
 
-        <div class="table-responsive">
-            <table class="table text-center">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>Gender</th>
-                        <th>Address</th>
-                        <th>Mobile</th>
-                        <th>Year Level</th>
-                        <th>Course</th>
-                        <th>Section</th>
-                        <th>QR Code</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($students as $student)
-                        <tr class="student-row"> <!-- Add class here for hover effect -->
-                            <td>{{ $student->name }}</td>
-                            <td>{{ $student->age }}</td>
-                            <td>{{ $student->gender }}</td>
-                            <td>{{ $student->address }}</td>
-                            <td>{{ $student->mobile }}</td>
-                            <td>{{ $student->year_level }}</td>
-                            <td>{{ $student->course }}</td>
-                            <td>{{ $student->section }}</td>
-                            <td>{!! $qrCodes[$student->id] !!}</td> <!-- Display the generated QR code -->
-                            <td>
-                                <a href="{{ route('students.show', $student->id) }}" class="btn btn-light-blue">View</a>
-                                <a href="{{ route('students.edit', $student->id) }}" class="btn btn-light-yellow">Edit</a>
-                                <form action="{{ route('students.destroy', $student->id) }}" method="POST" style="display:inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                </form>
-                            </td>
+        <div class="d-flex justify-content-center">
+            <div class="table-responsive" style="max-width: 100%; overflow-x: auto;">
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Address</th>
+                            <th>Mobile</th>
+                            <th>Year Level</th>
+                            <th>Course</th>
+                            <th>Section</th>
+                            <th>QR Code</th>
+                            <th>Actions</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($students as $student)
+                            <tr class="student-row"> <!-- Add class here for hover effect -->
+                                <td>{{ $student->name }}</td>
+                                <td>{{ $student->age }}</td>
+                                <td>{{ $student->gender }}</td>
+                                <td>{{ $student->address }}</td>
+                                <td>{{ $student->mobile }}</td>
+                                <td>{{ $student->year_level }}</td>
+                                <td>{{ $student->course }}</td>
+                                <td>{{ $student->section }}</td>
+                                <td>{!! $qrCodes[$student->id] !!}</td> <!-- Display the generated QR code -->
+                                <td>
+                                    <a href="{{ route('students.show', $student->id) }}" class="btn btn-light-blue">View</a>
+                                    <a href="{{ route('students.edit', $student->id) }}" class="btn btn-light-yellow">Edit</a>
+                                    <form action="{{ route('students.destroy', $student->id) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <div class="text-center mt-4">
