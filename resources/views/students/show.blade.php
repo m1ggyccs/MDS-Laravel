@@ -1,4 +1,8 @@
 @extends('students/layout')
+
+@section('title', "{{ $student->name }} Details")
+
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         h1 {
-            color: #4b0082; /* Dark purple for heading */
+            color: black; /* Dark purple for heading */
         }
         .list-group-item {
             border: none; /* Remove border for a cleaner look */
@@ -40,14 +44,14 @@
             <li class="list-group-item"><strong>QR Code:</strong> {!! $qrCode !!}</li>
         </ul>
 
-        <div class="d-flex justify-content-between mb-4">
-            <a href="{{ route('students.edit', $student->id) }}" class="btn btn-light-blue">Edit</a>
+        <div class="d-flex justify-content-between flex-wrap mb-4">
+            <a href="{{ route('students.edit', $student->id) }}" class="btn btn-light-blue flex-grow-1 mr-1">Edit</a>
             <form action="{{ route('students.destroy', $student->id) }}" method="POST" style="display:inline;">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-danger flex-grow-1 mr-1">Delete</button>
             </form>
-            <a href="{{ route('students.index') }}" class="btn btn-light-yellow">Back to List</a>
+            <a href="{{ route('students.index') }}" class="btn btn-light-yellow flex-grow-1">Back to List</a>
         </div>
     </div>
 
@@ -56,3 +60,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+@endsection

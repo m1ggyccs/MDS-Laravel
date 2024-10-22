@@ -24,7 +24,7 @@
 <div class="container welcome-container">
     <h1>Welcome to My Laravel Application!</h1>
     <p>This is a simple welcome page created with Laravel.</p>
-    <a href="/" class="btn btn-primary">Go to Home</a>
+    <a href="/student" class="btn btn-primary">Go to Student Database</a>
 </div>
 
 <!-- Bootstrap JS Bundle -->

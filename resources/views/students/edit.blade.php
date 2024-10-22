@@ -1,5 +1,8 @@
 @extends('students/layout')
 
+@section('title', 'Edit Student')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,10 +27,27 @@
             border-radius: 0.5rem; /* Rounded corners for inputs */
         }
         h1 {
-            color: #4b0082; /* Dark purple for heading */
+            color: black; /* Dark purple for heading */
         }
         .form-group {
             margin-bottom: 1.5rem; /* Space between form groups */
+        }
+
+        /* Responsive design adjustments */
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column; /* Stack form fields vertically on small screens */
+            }
+            .form-group {
+                width: 100%; /* Ensure full width for form groups */
+            }
+            .d-flex {
+                flex-direction: column; /* Stack buttons vertically */
+                align-items: stretch; /* Stretch buttons to full width */
+            }
+            .btn {
+                margin-bottom: 10px; /* Add space between buttons */
+            }
         }
     </style>
 </head>
@@ -80,8 +100,8 @@
                 </div>
             </div>
             <div class="d-flex justify-content-between flex-wrap">
-                <button type="submit" class="btn btn-light-green">Update Student</button>
-                <a href="{{ route('students.index') }}" class="btn btn-light-yellow">Back to List</a>
+                <button type="submit" class="btn btn-light-green flex-grow-1">Update Student</button>
+                <a href="{{ route('students.index') }}" class="btn btn-light-yellow flex-grow-1 ml-2">Back to List</a>
             </div>
         </form>
     </div>
@@ -91,3 +111,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+@endsection

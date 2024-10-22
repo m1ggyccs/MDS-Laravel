@@ -1,5 +1,8 @@
 @extends('students/layout')
 
+@section('title', 'Create Student')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +27,7 @@
             border-radius: 0.5rem; /* Rounded corners for inputs */
         }
         h1 {
-            color: #4b0082; /* Dark purple for heading */
+            color: black; /* Dark purple for heading */
         }
         .form-group {
             margin-bottom: 1.5rem; /* Space between form groups */
@@ -78,9 +81,9 @@
                     <input type="text" id="section" name="section" class="form-control" required>
                 </div>
             </div>
-            <div class="d-flex justify-content-between">
-                <button type="submit" class="btn btn-light-green">Create Student</button>
-                <a href="{{ route('students.index') }}" class="btn btn-light-yellow">Back to List</a>
+            <div class="d-flex justify-content-between flex-wrap">
+                <button type="submit" class="btn btn-light-green flex-grow-1 mr-1">Create Student</button>
+                <a href="{{ route('students.index') }}" class="btn btn-light-yellow flex-grow-1">Back to List</a>
             </div>
         </form>
     </div>
@@ -90,3 +93,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+@endsection
